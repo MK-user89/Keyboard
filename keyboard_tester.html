@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Keyboard Tester Online - Test Your Gaming Keyboard Free | Anti-Ghosting & Response Time</title>
+    <meta name="title" content="Keyboard Tester Online - Test Your Gaming Keyboard Free | Anti-Ghosting & Response Time">
+    <meta name="description" content="Free online keyboard tester to test every key on your keyboard. Gaming keyboard features: anti-ghosting detection, response time tracking, KPS counter, RGB effects. Works with all keyboard layouts worldwide.">
+    <meta name="keywords" content="keyboard tester, keyboard test online, test keyboard, gaming keyboard tester, mechanical keyboard test, anti ghosting test, keyboard ghosting, keyboard response time, key tester, keyboard checker, test my keyboard, keyboard testing tool, online keyboard test">
+    <meta name="author" content="Keyboard Tester Pro">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Gaming Keyboard Tester Pro - Test Your Keyboard Online Free">
+    <meta property="og:description" content="Ultimate keyboard testing tool with anti-ghosting detection, response time tracking, KPS counter, and RGB effects. Test all keys on any keyboard layout.">
+    <meta property="og:image" content="https://yourdomain.com/preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/">
+    <meta property="twitter:title" content="Gaming Keyboard Tester Pro - Test Your Keyboard Online Free">
+    <meta property="twitter:description" content="Ultimate keyboard testing tool with anti-ghosting detection, response time tracking, KPS counter, and RGB effects.">
+    <meta property="twitter:image" content="https://yourdomain.com/preview.jpg">
+    
+    <!-- Additional SEO -->
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .background-effect {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            background: radial-gradient(ellipse at center, #1a1f3a 0%, #0a0e27 100%);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+            to { text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(102, 126, 234, 0.6); }
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .panel {
+            background: rgba(26, 31, 58, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(102, 126, 234, 0.4);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .keyboard-container {
+            background: rgba(15, 20, 40, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            box-shadow: 0 0 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .keyboard-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 6px;
+            justify-content: center;
+        }
+
+        .key {
+            background: linear-gradient(145deg, #1e2746, #151b33);
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            min-width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.15s;
+            cursor: default;
+            user-select: none;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .key:hover {
+            border-color: rgba(102, 126, 234, 0.6);
+        }
+
+        .key.pressed {
+            background: linear-gradient(145deg, #667eea, #764ba2);
+            border-color: #f093fb;
+            transform: scale(0.95) translateY(2px);
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.8), 0 0 60px rgba(240, 147, 251, 0.4);
+            animation: keyPress 0.3s ease;
+        }
+
+        @keyframes keyPress {
+            0%, 100% { transform: scale(0.95) translateY(2px); }
+            50% { transform: scale(1.05) translateY(0); }
+        }
+
+        .key.tested {
+            background: linear-gradient(145deg, #3498db, #2980b9);
+            border-color: #5dade2;
+        }
+
+        .key.space { min-width: 350px; }
+        .key.wide { min-width: 75px; }
+        .key.wider { min-width: 110px; }
+        .key.super-wide { min-width: 140px; }
+
+        .key-counter {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 0.7em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.6);
+        }
+
+        .test-modes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mode-btn {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+            border: 2px solid rgba(102, 126, 234, 0.5);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .mode-btn:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .mode-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: #f093fb;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .heatmap-legend {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+        }
+
+        .legend-gradient {
+            flex: 1;
+            height: 20px;
+            background: linear-gradient(90deg, 
+                rgba(52, 152, 219, 0.5) 0%,
+                rgba(46, 204, 113, 0.5) 25%,
+                rgba(241, 196, 15, 0.5) 50%,
+                rgba(230, 126, 34, 0.5) 75%,
+                rgba(231, 76, 60, 0.5) 100%);
+            border-radius: 10px;
+            margin: 0 15px;
+        }
+
+        .combo-display {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .combo-title {
+            font-size: 0.9em;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .combo-keys {
+            font-size: 1.3em;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #f093fb;
+        }
+
+        .performance-chart {
+            height: 150px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-bar {
+            position: absolute;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(0deg, #667eea, #f093fb);
+            transition: height 0.3s;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .leaderboard {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .leaderboard-item {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid #667eea;
+        }
+
+        .leaderboard-item:nth-child(1) { border-left-color: #f1c40f; }
+        .leaderboard-item:nth-child(2) { border-left-color: #95a5a6; }
+        .leaderboard-item:nth-child(3) { border-left-color: #cd7f32; }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .ghost-keys {
+            background: rgba(231, 76, 60, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid rgba(231, 76, 60, 0.5);
+        }
+
+        .ghost-warning {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .response-time {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: rgba(46, 204, 113, 0.2);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .rgb-effect {
+            animation: rgbCycle 3s linear infinite;
+        }
+
+        @keyframes rgbCycle {
+            0% { border-color: #ff0000; }
+            16% { border-color: #ff8800; }
+            33% { border-color: #ffff00; }
+            50% { border-color: #00ff00; }
+            66% { border-color: #0088ff; }
+            83% { border-color: #8800ff; }
+            100% { border-color: #ff0000; }
+        }
+
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .key {
+                min-width: 35px;
+                height: 35px;
+                padding: 8px;
+                font-size: 0.7em;
+            }
+            .key.space { min-width: 200px; }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1f3a, #0f1428);
+            margin: 5% auto;
+            padding: 30px;
+            border: 2px solid rgba(102, 126, 234, 0.5);
+            border-radius: 20px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 60px rgba(102, 126, 234, 0.4);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-effect"></div>
+    
+    <div class="container">
+        <header>
+            <h1>⚡ GAMING KEYBOARD TESTER PRO ⚡</h1>
+            <p class="subtitle">Ultimate Testing Suite for Professional Gamers</p>
+            <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">
+                Test keyboard online free • Anti-ghosting detector • Response time tracker • All layouts supported
+            </p>
+        </header>
+
+        <div class="main-grid">
+            <div>
+                <div class="panel">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalPresses">0</div>
+                            <div class="stat-label">Total Presses</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="kps">0.0</div>
+                            <div class="stat-label">Keys/Second</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="uniqueKeys">0</div>
+                            <div class="stat-label">Unique Keys</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="avgResponse">0</div>
+                            <div class="stat-label">Avg Response (ms)</div>
+                        </div>
+                    </div>
+
+                    <div class="combo-display">
+                        <div class="combo-title">🔥 Key Combo Detection</div>
+                        <div class="combo-keys" id="comboDisplay">Press keys simultaneously...</div>
+                    </div>
+                </div>
+
+                <div class="keyboard-container rgb-effect">
+                    <div id="keyboard"></div>
+                    <div class="heatmap-legend">
+                        <span>Cold</span>
+                        <div class="legend-gradient"></div>
+                        <span>Hot</span>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 style="margin-bottom: 15px;">🎮 Test Modes</h3>
+                    <div class="test-modes">
+                        <button class="mode-btn active" onclick="setMode('normal')">🎯 Normal Mode</button>
+                        <button class="mode-btn" onclick="setMode('anti-ghost')">👻 Anti-Ghost Test</button>
+                        <button class="mode-btn" onclick="setMode('reaction')">⚡ Reaction Test</button>
+                        <button class="mode-btn" onclick="setMode('endurance')">💪 Endurance Test</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="panel">
+                    <h3 style="margin-bottom: 15px;">📊 Performance Graph</h3>
+                    <div class="performance-chart" id="perfChart"></div>
+                    
+                    <div class="response-time">
+                        <div style="font-size: 0.6em; opacity: 0.7;">Last Key Response</div>
+                        <span id="lastResponse">--</span> ms
+                    </div>
+
+                    <div id="ghostDisplay" class="ghost-keys" style="display: none;">
+                        <div class="ghost-warning">⚠️ Ghosting Detected!</div>
+                        <div id="ghostInfo">Testing for key ghosting...</div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3 style="margin-bottom: 15px;">🏆 Top Keys</h3>
+                    <div class="leaderboard" id="leaderboard"></div>
+                </div>
+
+                <div class="panel controls">
+                    <button onclick="resetTest()">🔄 Reset All</button>
+                    <button onclick="exportData()">💾 Export Data</button>
+                    <button onclick="toggleRGB()">🌈 RGB Mode</button>
+                    <button onclick="showStats()">📈 Full Stats</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="statsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>📊 Detailed Statistics</h2>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        let totalPresses = 0;
+        let keyCounts = {};
+        let uniqueKeys = new Set();
+        let pressTimestamps = [];
+        let responseTimes = [];
+        let currentMode = 'normal';
+        let rgbMode = false;
+        let pressedKeys = new Set();
+        let lastKeyTime = 0;
+        let performanceData = [];
+
+        const keyboardLayout = [
+            ['Esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'],
+            ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace|super-wide'],
+            ['Tab|wide', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\|wide'],
+            ['Caps|wider', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", 'Enter|wider'],
+            ['Shift|super-wide', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', 'Shift|wider'],
+            ['Ctrl|wide', 'Win|wide', 'Alt|wide', 'Space|space', 'Alt|wide', 'Fn', 'Ctrl|wide']
+        ];
+
+        function createKeyboard() {
+            const keyboard = document.getElementById('keyboard');
+            keyboardLayout.forEach(row => {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'keyboard-row';
+                row.forEach(keyData => {
+                    const [keyLabel, keyClass] = keyData.split('|');
+                    const keyDiv = document.createElement('div');
+                    keyDiv.className = `key ${keyClass || ''}`;
+                    keyDiv.innerHTML = `<span>${keyLabel}</span>`;
+                    keyDiv.dataset.key = keyLabel.toLowerCase();
+                    keyDiv.id = 'key-' + keyLabel.toLowerCase();
+                    rowDiv.appendChild(keyDiv);
+                });
+                keyboard.appendChild(rowDiv);
+            });
+        }
+
+        function updateKeyVisual(key, count) {
+            const keyElements = document.querySelectorAll('.key');
+            keyElements.forEach(el => {
+                const keyData = el.dataset.key;
+                if (matchKey(keyData, key)) {
+                    el.classList.add('pressed');
+                    setTimeout(() => el.classList.remove('pressed'), 200);
+                    el.classList.add('tested');
+                    
+                    let counter = el.querySelector('.key-counter');
+                    if (!counter && count > 1) {
+                        counter = document.createElement('div');
+                        counter.className = 'key-counter';
+                        el.appendChild(counter);
+                    }
+                    if (counter) {
+                        counter.textContent = count;
+                    }
+                }
+            });
+        }
+
+        function matchKey(keyData, key) {
+            const keyLower = key.toLowerCase();
+            return keyData === keyLower ||
+                   (key === ' ' && keyData === 'space') ||
+                   (key === 'Control' && keyData === 'ctrl') ||
+                   (key === 'CapsLock' && keyData === 'caps') ||
+                   (key === 'Meta' && keyData === 'win') ||
+                   (key === 'Escape' && keyData === 'esc');
+        }
+
+        function handleKeyPress(e) {
+            const now = Date.now();
+            const key = e.key;
+            
+            if (lastKeyTime) {
+                const responseTime = now - lastKeyTime;
+                responseTimes.push(responseTime);
+                if (responseTimes.length > 10) responseTimes.shift();
+                document.getElementById('lastResponse').textContent = responseTime;
+                
+                const avgResponse = Math.round(responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length);
+                document.getElementById('avgResponse').textContent = avgResponse;
+            }
+            lastKeyTime = now;
+
+            totalPresses++;
+            keyCounts[key] = (keyCounts[key] || 0) + 1;
+            uniqueKeys.add(key);
+            pressTimestamps.push(now);
+            pressedKeys.add(key);
+
+            if (pressTimestamps.length > 100) pressTimestamps.shift();
+
+            updateKeyVisual(key, keyCounts[key]);
+            updateStats();
+            updateComboDisplay();
+            updatePerformanceChart();
+            updateLeaderboard();
+
+            if (currentMode === 'anti-ghost') {
+                checkGhosting();
+            }
+        }
+
+        function handleKeyUp(e) {
+            pressedKeys.delete(e.key);
+            updateComboDisplay();
+        }
+
+        function updateStats() {
+            document.getElementById('totalPresses').textContent = totalPresses;
+            document.getElementById('uniqueKeys').textContent = uniqueKeys.size;
+
+            const now = Date.now();
+            const recentPresses = pressTimestamps.filter(t => now - t < 1000);
+            const kps = recentPresses.length.toFixed(1);
+            document.getElementById('kps').textContent = kps;
+        }
+
+        function updateComboDisplay() {
+            const combo = Array.from(pressedKeys).map(k => 
+                k.length === 1 ? k.toUpperCase() : `[${k}]`
+            ).join(' + ');
+            document.getElementById('comboDisplay').textContent = combo || 'Press keys simultaneously...';
+        }
+
+        function updatePerformanceChart() {
+            const chart = document.getElementById('perfChart');
+            performanceData.push(pressedKeys.size);
+            if (performanceData.length > 50) performanceData.shift();
+
+            chart.innerHTML = '';
+            const maxHeight = Math.max(...performanceData, 1);
+            performanceData.forEach((value, index) => {
+                const bar = document.createElement('div');
+                bar.className = 'chart-bar';
+                bar.style.left = (index * 6) + 'px';
+                bar.style.height = ((value / maxHeight) * 100) + '%';
+                chart.appendChild(bar);
+            });
+        }
+
+        function updateLeaderboard() {
+            const leaderboard = document.getElementById('leaderboard');
+            const sorted = Object.entries(keyCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10);
+
+            leaderboard.innerHTML = sorted.map(([key, count]) => `
+                <div class="leaderboard-item">
+                    <span>${key.length === 1 ? key.toUpperCase() : key}</span>
+                    <strong>${count}</strong>
+                </div>
+            `).join('');
+        }
+
+        function checkGhosting() {
+            if (pressedKeys.size >= 3) {
+                const ghostDisplay = document.getElementById('ghostDisplay');
+                ghostDisplay.style.display = 'block';
+                document.getElementById('ghostInfo').textContent = 
+                    `Testing ${pressedKeys.size} simultaneous keys: ${Array.from(pressedKeys).join(', ')}`;
+            }
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (mode === 'anti-ghost') {
+                document.getElementById('ghostDisplay').style.display = 'block';
+                document.getElementById('ghostInfo').textContent = 'Press 3+ keys simultaneously to test...';
+            } else {
+                document.getElementById('ghostDisplay').style.display = 'none';
+            }
+        }
+
+        function resetTest() {
+            totalPresses = 0;
+            keyCounts = {};
+            uniqueKeys.clear();
+            pressTimestamps = [];
+            responseTimes = [];
+            pressedKeys.clear();
+            performanceData = [];
+            
+            document.querySelectorAll('.key').forEach(key => {
+                key.classList.remove('tested');
+                const counter = key.querySelector('.key-counter');
+                if (counter) counter.remove();
+            });
+
+            updateStats();
+            document.getElementById('comboDisplay').textContent = 'Press keys simultaneously...';
+            document.getElementById('leaderboard').innerHTML = '';
+            document.getElementById('perfChart').innerHTML = '';
+            document.getElementById('lastResponse').textContent = '--';
+            document.getElementById('avgResponse').textContent = '0';
+        }
+
+        function toggleRGB() {
+            rgbMode = !rgbMode;
+            const keyboard = document.querySelector('.keyboard-container');
+            if (rgbMode) {
+                keyboard.classList.add('rgb-effect');
+            } else {
+                keyboard.classList.remove('rgb-effect');
+            }
+        }
+
+        function exportData() {
+            const data = {
+                totalPresses,
+                uniqueKeys: uniqueKeys.size,
+                keyCounts,
+                avgResponse: responseTimes.length ? 
+                    Math.round(responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length) : 0,
+                timestamp: new Date().toISOString()
+            };
+
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `keyboard-test-${Date.now()}.json`;
+            a.click();
+        }
+
+        function showStats() {
+            const modal = document.getElementById('statsModal');
+            const content = document.getElementById('modalContent');
+            
+            const avgResponse = responseTimes.length ? 
+                Math.round(responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length) : 0;
+
+            content.innerHTML = `
+                <p><strong>Total Key Presses:</strong> ${totalPresses}</p>
+                <p><strong>Unique Keys:</strong> ${uniqueKeys.size}</p>
+                <p><strong>Average Response Time:</strong> ${avgResponse}ms</p>
+                <p><strong>Best Response Time:</strong> ${Math.min(...responseTimes, 0)}ms</p>
+                <p><strong>Session Duration:</strong> ${Math.round((Date.now() - (pressTimestamps[0] || Date.now())) / 1000)}s</p>
+                <hr style="margin: 20px 0; border-color: rgba(102, 126, 234, 0.3);">
+                <h3>All Keys Tested (${uniqueKeys.size}):</h3>
+                <p>${Array.from(uniqueKeys).sort().join(', ')}</p>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('statsModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('statsModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyPress);
+        document.addEventListener('keyup', handleKeyUp);
+        
+        createKeyboard();
+    </script>
+
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Gaming Keyboard Tester Pro",
+        "description": "Free online keyboard tester to test every key on your keyboard with gaming features like anti-ghosting detection and response time tracking",
+        "url": "https://yourdomain.com",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Test all keyboard keys",
+            "Anti-ghosting detection",
+            "Response time tracking",
+            "Keys per second counter",
+            "Gaming keyboard support",
+            "All keyboard layouts supported"
+        ]
+    }
+    </script>
+</body>
+</html>
